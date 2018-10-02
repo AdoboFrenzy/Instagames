@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const UserSchema = new Schema({
+
     name: {
         type: String,
         required: true
@@ -23,6 +24,7 @@ const UserSchema = new Schema({
         type: Date,
         dafault: Date.now
     }
+    
 });
 
 module.exports = User = mongoose.model('users', UserSchema);
