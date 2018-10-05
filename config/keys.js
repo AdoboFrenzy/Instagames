@@ -1,7 +1,5 @@
 module.exports = {
-
     mongoURI: 
-    'mongodb://datrupnoy:alfred123@ds018568.mlab.com:18568/cleaningapp',
+    'mongodb://AdoboFrenzy:alfred123@ds030827.mlab.com:30827/instagames',
     secretOrKey: 'secret'
-    
 };
