@@ -4,7 +4,7 @@ Instagames allow users to post screenshots of games as well as maintain a person
 
 ## Live Demo
 You can access the working live demo here: <br>
-[Live Page](https://instagames-fsp.herokuapp.com/)
+[Live Page](https://instagames-fsp.herokuapp.com/){:target="_blank"}
 
 
 ## Table of Contents
