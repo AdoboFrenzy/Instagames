@@ -5,8 +5,8 @@ export const mapStateToProps = (state, ownProps) => ({
     errors: state.errors
 });
 
-export const mapDispatchToProps = ({
-    loginUser: (userData) => loginUser(userData)
+export const mapDispatchToProps = (dispatch) => ({
+    loginUser: (userData) => dispatch(loginUser(userData))
 });
 
 

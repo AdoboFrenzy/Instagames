@@ -104,4 +104,4 @@ Login.propTypes = {
 
 }
 
-export default connect(mapStateToProps, { loginUser })(withRouter(Login));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
