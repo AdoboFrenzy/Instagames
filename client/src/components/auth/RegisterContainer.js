@@ -4,9 +4,12 @@
 import { registerUser } from '../../actions/authActions';
 
 export const mapStateToProps = (state, ownProps) => ({
-    auth: state.auth
+    auth: state.auth,
+    errors: state.errors
 });
 
 export const mapDispatchToProps = (dispatch) => ({
     registerUser: (newUser, history) => dispatch(registerUser(newUser, history))
 });
+
+
