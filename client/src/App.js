@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import configureStore from './store';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -15,7 +15,7 @@ import './App.css';
 class App extends React.Component {
   render() {
     return (
-      <Provider store={ store }>
+      <Provider store={ configureStore }>
         <Router>
           <div className="App">
             <Navbar />

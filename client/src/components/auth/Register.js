@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+// import axios from 'axios';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-import { registerUser } from '../../actions/authActions';
-import { mapStateToProps } from './RegisterContainer';
+// import { registerUser } from '../../actions/authActions';
+import { mapStateToProps, mapDispatchToProps } from './RegisterContainer';
+// import { withRouter } from 'react-router-dom';
 // import RegisterContainer from './RegisterContainer'
 
 class Register extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: '',
             email: '',
@@ -126,4 +127,4 @@ Register.propTypes = {
     auth: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, { registerUser })(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
