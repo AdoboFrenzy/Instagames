@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { mapStateToProps, mapDispatchToProps } from './LoginContainer';
-// import { loginUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup'
 
 class Login extends React.Component {
