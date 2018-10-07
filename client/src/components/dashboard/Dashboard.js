@@ -29,7 +29,7 @@ class Dashboard extends React.Component {
                 dashboardContent = (
                     <div>
                         <p className="lead text-muted">Welcome { user.name }</p>
-                        <p>You have not created a profile yet. Please create one!</p>
+                        <p>You have not created a profile. Please create one!</p>
                         <Link to="/create-profile" className="btn btn-lg btn-info">
                             Create Profile
                         </Link>
