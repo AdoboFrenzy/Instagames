@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { mapStateToProps, mapDispatchToProps } from './DashboardContainer';
-import Spinner from '../common/spinner'
+import Spinner from '../common/spinner';
+import ProfileActions from './profileActions';
 
 class Dashboard extends React.Component {
 
@@ -23,7 +24,14 @@ class Dashboard extends React.Component {
         } else {
             // Check if logged in user has profile data
             if(Object.keys(profile).length > 0) {
-                dashboardContent = <h4>TODO: DISPLAY PROFILE</h4>
+                dashboardContent = (
+                    <div>
+                        <p className="lead text-muted">
+                        Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+                        </p>
+                        <ProfileActions />
+                    </div>
+                )
             } else {
                 // User is logged in but has no profile
                 dashboardContent = (
