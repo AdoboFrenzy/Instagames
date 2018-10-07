@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../actions/authActions';
 import { mapStateToProps, mapDispatchToProps } from './containers/NavbarContainer';
 
 class Navbar extends React.Component {
 
     onLogoutClick(e) {
         e.preventDefault();
+        this.props.clearCurrentProfile();
         this.props.logoutUser();
     }
 
