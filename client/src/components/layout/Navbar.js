@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from './containers/NavbarContainer';
 
 class Navbar extends React.Component {
+    constructor() {
+        super();
+    }
 
     onLogoutClick(e) {
         e.preventDefault();
