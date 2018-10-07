@@ -44,7 +44,56 @@ class CreateProfile extends React.Component {
     }
     
     render() {
-        const { errors } = this.state;
+        const { errors, displaySocialInputs } = this.state;
+
+        let socialInputs;
+
+        if(displaySocialInputs) {
+            socialInputs = (
+                <div>
+                    <InputGroup 
+                        placeholder="Twitch Profile Name"
+                        name="twitch"
+                        icon="fab fa-twitch"
+                        onChange={this.onChange}
+                        error={errors.twitch}
+                    />
+      
+                    <InputGroup 
+                        placeholder="Discord Profile Name"
+                        name="discord"
+                        icon="fab fa-discord"
+                        onChange={this.onChange}
+                        error={errors.discord}
+                    />
+      
+                    <InputGroup 
+                        placeholder="Twitter Profile Name"
+                        name="twitter"
+                        icon="fab fa-twitter"
+                        onChange={this.onChange}
+                        error={errors.twitter}
+                    />
+      
+      
+                    <InputGroup 
+                        placeholder="Instagram Profile Name"
+                        name="instagram"
+                        icon="fab fa-instagram"
+                        onChange={this.onChange}
+                        error={errors.instagram}
+                    />
+      
+                    <InputGroup 
+                        placeholder="Youtube Channel"
+                        name="youtube"
+                        icon="fab fa-youtube"
+                        onChange={this.onChange}
+                        error={errors.youtube}
+                    />
+                </div>
+            ) ;
+        };
 
         // Select options for status
         const options = [
@@ -134,6 +183,8 @@ class CreateProfile extends React.Component {
                                     </button>
                                     <span className="text-muted">Optional</span>
                                 </div>
+                                {socialInputs}
+                                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4" />
                             </form>
                         </div>
                     </div>
