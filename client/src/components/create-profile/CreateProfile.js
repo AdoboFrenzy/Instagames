@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { mapStateToProps, mapDispatchToProps } from "./CreateProfileContainer";
 import PropTypes from 'prop-types';
+import TextFieldGroup from '../common/TextFieldGroup';
 
 class CreateProfile extends React.Component {
     constructor(props) {
@@ -27,11 +29,27 @@ class CreateProfile extends React.Component {
     
     render() {
         return (
-            <div>
-            
+            <div className="create-profile">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-8 m-auto">
+                            <h1 className="display-4 text-center">Create Your Profile</h1>
+                            <p className="lead text-center">
+                                Let's get some information to make your profile stand out
+                            </p>
+                            <small className="d-block pb-3">* = required fields</small>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
+}
+
+CreateProfile.propTypes = {
+    profile: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+
 }
 
 export default connect(null)(CreateProfile);
