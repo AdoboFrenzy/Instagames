@@ -86,7 +86,8 @@ class EditProfile extends React.Component {
                 youtube: profile.youtube,
                 instagram: profile.instagram,
                 twitch: profile.twitch,
-                discord: profile.discord
+                discord: profile.discord,
+                errors: {}
             }, () => {
                 console.log(this.state.twitch)
             });
