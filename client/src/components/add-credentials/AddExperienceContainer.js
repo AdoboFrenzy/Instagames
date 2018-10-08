@@ -1,4 +1,4 @@
-
+import { addExperience } from '../../actions/profileActions';
 
 export const mapStateToProps = (state, ownProps) => ({
     profile: state.profile,
@@ -6,7 +6,7 @@ export const mapStateToProps = (state, ownProps) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-    
+    addExperience: (expData, history) => dispatch(addExperience(expData, history))
 });
 
 

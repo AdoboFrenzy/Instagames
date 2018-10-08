@@ -6,6 +6,7 @@ import { mapStateToProps, mapDispatchToProps } from './AddExperienceContainer';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
+
 class AddExperience extends React.Component {
   constructor(props) {
     super(props)
@@ -25,10 +26,27 @@ class AddExperience extends React.Component {
     this.onCheck = this.onCheck.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.errors) {
+      this.setState({ errors: nextProps.errors })
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
-    console.log('submit')
+    const expData = {
+      title: this.state.title,
+      from: this.state.from,
+      to: this.state.to,
+      current: this.state.current,
+      description: this.state.description
+    }
+
+    console.log(expData);
+    console.log(this.props);
+
+    this.props.addExperience(expData, this.props.history);
   }
 
   onChange(e) {
@@ -63,7 +81,7 @@ class AddExperience extends React.Component {
                 <TextFieldGroup 
                   placeholder="* title"
                   name="title"
-                  value={this.state.company}
+                  value={this.state.title}
                   onChange={this.onChange}
                   error={errors.title}
                 />
@@ -90,7 +108,7 @@ class AddExperience extends React.Component {
                     className="form-check-input"
                     name="current"
                     value={this.state.current}
-                    check={this.state.current}
+                    // check={this.state.current}
                     onChange={this.onCheck}
                     id="current"
                   />
@@ -120,7 +138,8 @@ class AddExperience extends React.Component {
 
 AddExperience.propTypes = state => ({
   profile: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
+  addExperience: PropTypes.func.isRequired
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AddExperience));
