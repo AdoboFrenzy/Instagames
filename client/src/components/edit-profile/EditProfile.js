@@ -111,7 +111,9 @@ class EditProfile extends React.Component {
             facebook: this.state.facebook,
             linkedin: this.state.linkedin,
             youtube: this.state.youtube,
-            instagram: this.state.instagram
+            instagram: this.state.instagram,
+            twitch: this.state.twitch,
+            discord: this.state.discord
         };
 
         this.props.createProfile(profileData, this.props.history);
@@ -269,7 +271,7 @@ class EditProfile extends React.Component {
                                     <span className="text-muted">Optional</span>
                                 </div>
                                 {socialInputs}
-                                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4" />
+                                <input type="submit" value="Save" className="btn btn-info btn-block mt-4" />
                             </form>
                         </div>
                     </div>
