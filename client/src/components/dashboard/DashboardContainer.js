@@ -1,4 +1,4 @@
-import { getCurrentProfile } from '../../actions/profileActions';
+import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
 
 export const mapStateToProps = (state, ownProps) => ({
     profile: state.profile,
@@ -7,6 +7,7 @@ export const mapStateToProps = (state, ownProps) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-    getCurrentProfile: () => dispatch(getCurrentProfile())
+    getCurrentProfile: () => dispatch(getCurrentProfile()),
+    deleteAccount: () => dispatch(deleteAccount())
 });
 
