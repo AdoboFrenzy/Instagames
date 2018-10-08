@@ -111,6 +111,12 @@ const ProfileSchema = new Schema({
         instagram: {
             type: String
         },
+        twitch: {
+            type: String
+        },
+        discord: {
+            type: String
+        }
     },
     date: {
         type: Date,

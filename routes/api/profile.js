@@ -134,6 +134,8 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     if(req.body.facebook) profileFields.social.facebook = req.body.facebook;
     if(req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
     if(req.body.instagram) profileFields.social.instagram = req.body.instagram;
+    if(req.body.twitch) profileFields.social.twitch = req.body.twitch;
+    if(req.body.discord) profileFields.social.discord = req.body.discord;
 
     Profile.findOne({ user: req.user.id })
     

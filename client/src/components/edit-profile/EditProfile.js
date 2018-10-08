@@ -1,21 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
-import { mapStateToProps, mapDispatchToProps } from "./CreateProfileContainer";
+import { mapStateToProps, mapDispatchToProps } from "./EditProfileContainer";
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
+import isEmpty from '../../validation/is-empty';
 
-class CreateProfile extends React.Component {
+class EditProfile extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             displaySocialInputs: false,
             handle: '',
-            company:'',
+            company: '',
             website: '',
             location: '',
             status: '',
@@ -36,9 +37,59 @@ class CreateProfile extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentDidMount() {
+        this.props.getCurrentProfile();
+    }
+
     componentWillReceiveProps(nextProps) {
         if(nextProps.errors) {
             this.setState({ errors: nextProps.errors })
+        }
+        
+
+        if(nextProps.profile.profile) {
+            const profile = nextProps.profile.profile;
+
+        
+            // Bring sills array back to Comma Separated Value
+            const skillsCSV = !isEmpty(profile.skills) ? profile.skills.join(',') : '';
+
+            // If profile field doesn't exist, make expty string
+            profile.company = !isEmpty(profile.company) ? profile.company : '';
+            profile.website = !isEmpty(profile.website) ? profile.website : '';
+            profile.location = !isEmpty(profile.location) ? profile.location : '';
+            profile.githubusername = !isEmpty(profile.githubusername) ? profile.githubusername : '';
+            profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
+
+            profile.social = !isEmpty(profile.social) ? profile.social : {};
+            profile.twitch = !isEmpty(profile.social.twitch) ? profile.social.twitch : '';
+            profile.discord = !isEmpty(profile.social.discord) ? profile.social.discord : '';
+            profile.twitter = !isEmpty(profile.social.twitter) ? profile.social.twitter : '';
+            profile.instagram = !isEmpty(profile.social.instagram) ? profile.social.instagram : '';
+            profile.youtube = !isEmpty(profile.social.youtube) ? profile.social.youtube : '';
+            profile.twitch = !isEmpty(profile.social.twitch) ? profile.social.twitch : '';
+            profile.discord = !isEmpty(profile.social.discord) ? profile.social.discord : '';
+
+            // Set component fields state      
+            this.setState({
+                handle: profile.handle,
+                company: profile.company,
+                website: profile.website,
+                location: profile.location,
+                status: profile.status,
+                skills: skillsCSV,
+                githubusername: profile.githubusername,
+                bio: profile.bio,
+                twitter: profile.twitter,
+                facebook: profile.facebook,
+                linkedin: profile.linkedin,
+                youtube: profile.youtube,
+                instagram: profile.instagram,
+                twitch: profile.twitch,
+                discord: profile.discord
+            }, () => {
+                console.log(this.state.twitch)
+            });
         }
     }
 
@@ -60,9 +111,7 @@ class CreateProfile extends React.Component {
             facebook: this.state.facebook,
             linkedin: this.state.linkedin,
             youtube: this.state.youtube,
-            instagram: this.state.instagram,
-            twitch: this.state.twitch,
-            discord: this.state.discord
+            instagram: this.state.instagram
         };
 
         this.props.createProfile(profileData, this.props.history);
@@ -72,57 +121,62 @@ class CreateProfile extends React.Component {
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value })
     }
-    
+
     render() {
         const { errors, displaySocialInputs } = this.state;
 
         let socialInputs;
 
-        if(displaySocialInputs) {
+        if (displaySocialInputs) {
             socialInputs = (
                 <div>
-                    <InputGroup 
+                    <InputGroup
                         placeholder="Twitch Profile Name"
                         name="twitch"
                         icon="fab fa-twitch"
+                        value={this.state.twitch}
                         onChange={this.onChange}
                         error={errors.twitch}
                     />
-      
-                    <InputGroup 
+
+                    <InputGroup
                         placeholder="Discord Profile Name"
                         name="discord"
                         icon="fab fa-discord"
+                        value={this.state.discord}
                         onChange={this.onChange}
                         error={errors.discord}
                     />
-      
-                    <InputGroup 
+
+                    <InputGroup
                         placeholder="Twitter Profile Name"
                         name="twitter"
                         icon="fab fa-twitter"
+                        value={this.state.twitter}
                         onChange={this.onChange}
                         error={errors.twitter}
                     />
-      
-      
-                    <InputGroup 
+
+
+                    <InputGroup
                         placeholder="Instagram Profile Name"
                         name="instagram"
                         icon="fab fa-instagram"
+                        value={this.state.instagram}
                         onChange={this.onChange}
                         error={errors.instagram}
                     />
-      
-                    <InputGroup 
+
+                    <InputGroup
                         placeholder="Youtube Channel"
                         name="youtube"
                         icon="fab fa-youtube"
+                        value={this.state.youtube}
                         onChange={this.onChange}
                         error={errors.youtube}
                     />
                 </div>
-            ) ;
+            );
         };
 
         // Select options for status
@@ -140,13 +194,12 @@ class CreateProfile extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Create Your Profile</h1>
-                            <p className="lead text-center">
-                                Let's get some information to make your profile stand out
-                            </p>
+                            <h1 className="display-4 text-center">Edit Your Profile</h1>
+
                             <small className="d-block pb-3">* = required fields</small>
+
                             <form onSubmit={this.onSubmit}>
-                                <TextFieldGroup 
+                                <TextFieldGroup
                                     placeholder="* Profile Handle"
                                     name="handle"
                                     value={this.state.handle}
@@ -204,13 +257,13 @@ class CreateProfile extends React.Component {
                                     info="Tell us about yourself"
                                 />
                                 <div className="mb-3">
-                                    <button 
+                                    <button
                                         type="button"
                                         onClick={() => {
                                             this.setState(prevState => ({
                                                 displaySocialInputs: !prevState.displaySocialInputs
                                             }))
-                                    }}>
+                                        }}>
                                         Add Social Network Links
                                     </button>
                                     <span className="text-muted">Optional</span>
@@ -226,11 +279,13 @@ class CreateProfile extends React.Component {
     }
 }
 
-CreateProfile.propTypes = {
+EditProfile.propTypes = {
+
+    createProfile: PropTypes.func.isRequired,
     getCurrentProfile: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CreateProfile));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(EditProfile));
