@@ -45,8 +45,6 @@ class CreateProfile extends React.Component {
     onSubmit(e) {
         e.preventDefault();
 
-        console.log('submit');
-
         const profileData = {
             handle: this.state.handle,
             company: this.state.company,
@@ -132,7 +130,7 @@ class CreateProfile extends React.Component {
             { label: 'Competitive', value: 'Competitive' },
             { label: 'Professional', value: 'Professional' },
             { label: 'Coach', value: 'Coach' },
-            { label: 'Other', value: 'Other' }
+            { label: 'Other Type', value: 'Other Type of' }
         ];
 
         return (
@@ -152,7 +150,7 @@ class CreateProfile extends React.Component {
                                     value={this.state.handle}
                                     onChange={this.onChange}
                                     error={errors.handle}
-                                    info="A unique handle for your profile URL. Full name, company name, nick name, etc"
+                                    info="A unique handle for your profile URL."
                                 />
                                 <SelectListGroup
                                     placeholder="* Status"
@@ -169,7 +167,7 @@ class CreateProfile extends React.Component {
                                     value={this.state.company}
                                     onChange={this.onChange}
                                     error={errors.company}
-                                    info="A team or company that sponsors you or N/A"
+                                    info="A team or company that sponsors you or leave this blank"
                                 />
                                 <TextFieldGroup
                                     placeholder="Location"

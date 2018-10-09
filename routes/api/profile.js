@@ -3,10 +3,12 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
+
 // Load Validation
 const validateProfileInput = require('../../validation/profile');
 const validateExperienceInput = require('../../validation/experience');
 const validateEducationInput = require('../../validation/education');
+const isEmpty = require('../../validation/is-empty');
 
 // Load Profile Model
 const Profile = require('../../models/Profile');
@@ -115,7 +117,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     profileFields.user = req.user.id;
 
     if(req.body.handle) profileFields.handle = req.body.handle;
-    if(req.body.company) profileFields.company = req.body.company;
+    if(req.body.company || isEmpty(req.body.company)) profileFields.company = req.body.company;
     if(req.body.website) profileFields.website = req.body.website;
     if(req.body.location) profileFields.location = req.body.location;
     if(req.body.bio) profileFields.bio = req.body.bio;

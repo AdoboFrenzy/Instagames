@@ -55,7 +55,7 @@ class EditProfile extends React.Component {
             const skillsCSV = !isEmpty(profile.skills) ? profile.skills.join(',') : '';
 
             // If profile field doesn't exist, make expty string
-            profile.company = !isEmpty(profile.company) ? profile.company : '';
+            profile.company = !isEmpty(profile.company) ? profile.company : ' ';
             profile.website = !isEmpty(profile.website) ? profile.website : '';
             profile.location = !isEmpty(profile.location) ? profile.location : '';
             profile.githubusername = !isEmpty(profile.githubusername) ? profile.githubusername : '';
@@ -89,7 +89,7 @@ class EditProfile extends React.Component {
                 discord: profile.discord,
                 errors: {}
             }, () => {
-                console.log(this.state.twitch)
+                console.log(this.state.company)
             });
         }
     }
@@ -97,7 +97,7 @@ class EditProfile extends React.Component {
     onSubmit(e) {
         e.preventDefault();
 
-        console.log('submit');
+        // console.log(typeof(this.state.company));
 
         const profileData = {
             handle: this.state.handle,
@@ -122,6 +122,7 @@ class EditProfile extends React.Component {
     }
 
     onChange(e) {
+        console.log(e.target.value)
         this.setState({ [e.target.name]: e.target.value })
     }
 
@@ -189,7 +190,7 @@ class EditProfile extends React.Component {
             { label: 'Competitive', value: 'Competitive' },
             { label: 'Professional', value: 'Professional' },
             { label: 'Coach', value: 'Coach' },
-            { label: 'Other', value: 'Other' }
+            { label: 'Other Type', value: 'Other Type of' }
         ];
 
         return (

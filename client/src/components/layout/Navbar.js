@@ -62,11 +62,11 @@ class Navbar extends React.Component {
                 </button>
 
                 <div className="collapse navbar-collapse" id="mobile-nav">
-                    {/* <ul className="navbar-nav mr-auto">
+                    <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/profiles"> Profiles </Link>
+                            <Link className="nav-link" to="/profiles"> Find Other Gamers </Link>
                         </li>
-                    </ul> */}
+                    </ul>
 
                     {isAuthenticated ? authLinks : guestLinks}
 
