@@ -1,10 +1,11 @@
 import React from 'react'
+import Moment from 'react-moment';
 
 class ProfileCreds extends React.Component {
     render() {
         return (
             <div>
-                <h1>TODO: PROFILE CREDS</h1>
+                
             </div>
         )
     }

@@ -88,16 +88,12 @@ class EditProfile extends React.Component {
                 twitch: profile.twitch,
                 discord: profile.discord,
                 errors: {}
-            }, () => {
-                console.log(this.state.company)
             });
         }
     }
 
     onSubmit(e) {
         e.preventDefault();
-
-        // console.log(typeof(this.state.company));
 
         const profileData = {
             handle: this.state.handle,
@@ -122,7 +118,7 @@ class EditProfile extends React.Component {
     }
 
     onChange(e) {
-        console.log(e.target.value)
+      
         this.setState({ [e.target.name]: e.target.value })
     }
 
