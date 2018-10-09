@@ -18,10 +18,25 @@ class PostForm extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentWillReceiveProps(newProps) {
+        if(newProps.errors) {
+            this.setState({ errors: newProps.errors })
+        }
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
-        console.log('submit')
+        const { user } = this.props.auth;
+
+        const newPost = {
+            text: this.state.text,
+            name: user.name,
+            avatar: user.avatar
+        }
+
+        this.props.addPost(newPost);
+        this.setState({ text: '' })
     }
 
     onChange(e) {
