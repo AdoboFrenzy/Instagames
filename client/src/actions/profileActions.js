@@ -27,6 +27,24 @@ export const getCurrentProfile = () => dispatch => {
         )
 }
 
+// Get profile by handle
+export const getProfileByHandle = (handle) => dispatch => {
+    dispatch(setProfileLoading());
+    axios.get(`/api/profile/${handle}`)
+        .then(res =>
+            dispatch({
+                type: GET_PROFILE,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch({
+                type: GET_PROFILE,
+                payload: {}
+            })
+        )
+}
+
 // Create Profile
 export const createProfile = (profileData, history) => dispatch => {
     axios.post('/api/profile', profileData)
@@ -39,7 +57,7 @@ export const createProfile = (profileData, history) => dispatch => {
 
                 dispatch({
                     type: GET_ERRORS,
-                    payload: err.response.data
+                    payload: null
                 })    
             )
         }
