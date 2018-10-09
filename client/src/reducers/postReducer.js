@@ -1,4 +1,4 @@
-import {  } form '';
+import { GET_POST, GET_POSTS, ADD_POST, DELETE_POST } from '../actions/types';
 
 const initialState = {
     posts: [],
@@ -8,7 +8,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch(action.type) {
-        
+
 
         default:
             return state;
