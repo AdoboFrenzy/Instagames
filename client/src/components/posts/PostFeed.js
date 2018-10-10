@@ -13,7 +13,7 @@ class PostFeed extends React.Component {
   }
 }
 
-PostFeed.PropTypes = {
+PostFeed.propTypes = {
     posts: PropTypes.array.isRequired
 }
 

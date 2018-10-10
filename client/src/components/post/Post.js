@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Spinner from '../common/spinner';
 import PostItem from '../posts/PostItem';
+import CommentForm from './CommentForm';
+import CommentFeed from './CommentFeed';
 import { mapStateToProps, mapDispatchToProps } from './PostContainer';
 
 class Post extends React.Component {
@@ -22,6 +24,8 @@ class Post extends React.Component {
         postContent = (
             <div>
                 <PostItem post={post} showActions={false} />
+                <CommentForm postId={post._id} />
+                <CommentFeed postId={post._id} comments={post.comments} />
             </div>
         );
     }
