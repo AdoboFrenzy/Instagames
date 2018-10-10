@@ -30,6 +30,7 @@ class PostItem extends React.Component {
 
   render() {
     const { post, auth, showActions } = this.props;
+    console.log(this.props)
 
     return (
         <div className="card card-body mb-3">
@@ -46,6 +47,9 @@ class PostItem extends React.Component {
                     <p className="text-center">{post.name}</p>
                 </div>
                 <div className="col-md-10">
+                    <div className="picturethumbnail">
+                        <img width="1280" height="720" className="imgthumbnail" src={post.image} />
+                    </div>
                     <p className="lead">
                         {post.text}
                     </p>

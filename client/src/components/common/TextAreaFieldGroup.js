@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 const TextAreaFieldGroup = ({
     name,
+    image,
     placeholder,
     value,
     error,
@@ -18,6 +19,7 @@ const TextAreaFieldGroup = ({
                 })}
                 placeholder={placeholder}
                 name={name}
+                image={image}
                 value={value}
                 onChange={onChange}
             />
@@ -31,6 +33,7 @@ const TextAreaFieldGroup = ({
 
 TextAreaFieldGroup.propTypes = {
     name: PropTypes.string.isRequired,
+    // image: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.string.isRequired,
     info: PropTypes.string,
