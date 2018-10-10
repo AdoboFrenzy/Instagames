@@ -7,9 +7,9 @@ You can access the working live demo here: <br>
 [Live Page](https://instagames-fsp.herokuapp.com/)
 
 ## Table of Contents
-  * [Features]()
-  * [Technologies]()
-  * [Pass Data Through Modals]()
-  * [Multiple Demo Users]()
-  * [Credits]()
-  * [Future Functionalities]()
+  * [Features](https://github.com/AdoboFrenzy/Instagames)
+  * [Technologies](https://github.com/AdoboFrenzy/Instagames)
+  * [Pass Data Through Modals](https://github.com/AdoboFrenzy/Instagames)
+  * [Multiple Demo Users](https://github.com/AdoboFrenzy/Instagames)
+  * [Credits](https://github.com/AdoboFrenzy/Instagames)
+  * [Future Functionalities](https://github.com/AdoboFrenzy/Instagames)
