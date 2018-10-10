@@ -24,6 +24,11 @@ export default function (state = initialState, action) {
 
         //     }))
 
+        case DELETE_POST:
+            return (Object.assign({}, state, {
+                posts: state.posts.filter(post => post._id !== action.payload) // deletes post with matched id from state
+            }))
+
         case ADD_POST:
             return (Object.assign({}, state, {
                 posts: [action.payload, ...state.posts]

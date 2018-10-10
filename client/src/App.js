@@ -21,7 +21,8 @@ import EditProfile from './components/edit-profile/EditProfile';
 import AddExperience from './components/add-credentials/AddExperience';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
-import Posts from './components/posts/PostForm';
+// import Post from './components/posts/Post';
+import Posts from './components/posts/Posts';
 import NotFound from './components/not-found/NotFound';
 
 import './App.css';

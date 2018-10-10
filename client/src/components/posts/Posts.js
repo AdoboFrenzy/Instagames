@@ -7,7 +7,9 @@ import Spinner from '../common/spinner';
 import { mapStateToProps, mapDispatchToProps } from './PostsContainer';
 
 class Posts extends React.Component {
+    
     componentDidMount() {
+        console.log(this.props)
         this.props.getPosts();
     }
 
@@ -16,9 +18,9 @@ class Posts extends React.Component {
         let postContent;
 
         if(posts === null || loading) {
-            postContent = <Spinner />
+            postContent = <Spinner />;
         } else {
-            postContent = <PostFeed posts={posts} />
+            postContent = <PostFeed posts={posts} />;
         }
 
         return (
