@@ -19,10 +19,11 @@ export default function (state = initialState, action) {
                 loading: false
             }))
 
-        // case GET_POSTS:
-        //     return (Object.assign({}, state, {
-
-        //     }))
+        case GET_POST:
+            return (Object.assign({}, state, {
+                post: action.payload,
+                loading: false
+            }))
 
         case DELETE_POST:
             return (Object.assign({}, state, {

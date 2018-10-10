@@ -9,7 +9,7 @@ import { mapStateToProps, mapDispatchToProps } from './PostsContainer';
 class Posts extends React.Component {
     
     componentDidMount() {
-        console.log(this.props)
+        // console.log(this.props)
         this.props.getPosts();
     }
 

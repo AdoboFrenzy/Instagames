@@ -21,7 +21,7 @@ import EditProfile from './components/edit-profile/EditProfile';
 import AddExperience from './components/add-credentials/AddExperience';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
-// import Post from './components/posts/Post';
+import Post from './components/post/Post';
 import Posts from './components/posts/Posts';
 import NotFound from './components/not-found/NotFound';
 
@@ -75,6 +75,9 @@ class App extends React.Component {
                 </Switch>
                 <Switch>
                   <PrivateRoute exact path="/add-experience" component={AddExperience} />
+                </Switch>
+                <Switch>
+                  <PrivateRoute exact path="/post/:id" component={Post} />
                 </Switch>
                 <Switch>
                   <PrivateRoute exact path="/feed" component={Posts} />
