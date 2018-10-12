@@ -26,6 +26,7 @@ import Posts from './components/posts/Posts';
 import NotFound from './components/not-found/NotFound';
 
 import './App.css';
+import './App2.css';
 
 // Check for Token
 if(localStorage.jwtToken) {

@@ -22,12 +22,12 @@ class Navbar extends React.Component {
                     Post Feed
                 </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <Link className="nav-link" to="/dashboard">
                     Dashboard
                 </Link>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
                 <a 
                     href="/"
                     onClick={this.onLogoutClick.bind(this)} 
@@ -42,7 +42,7 @@ class Navbar extends React.Component {
                     {' '}
                     Logout
                 </a>
-            </li>
+            </li> */}
         </ul>
     )
 
@@ -59,23 +59,19 @@ class Navbar extends React.Component {
 
     return (
       <div>
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-            <div className="container">
-                <Link className="navbar-brand" to="/">Instagames</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+        <nav className="navbar navbar-light bg-light mb-4">
+            <div className="">
+                {isAuthenticated ? authLinks : guestLinks}
 
-                <div className="collapse navbar-collapse" id="mobile-nav">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/profiles"> Find Other Gamers </Link>
-                        </li>
-                    </ul>
+            </div>
 
-                    {isAuthenticated ? authLinks : guestLinks}
-
-                </div>
+            <div className="cont">
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/profiles"><i class="far fa-compass"></i></Link>
+                    </li>
+                </ul>
+                    <Link className="navbar-brand" to="/"><i class="far fa-user"></i></Link>
             </div>
         </nav>
       </div>
