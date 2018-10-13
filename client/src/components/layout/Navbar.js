@@ -60,18 +60,21 @@ class Navbar extends React.Component {
     return (
       <div>
         <nav className="navbar navbar-light bg-light mb-4">
-            <div className="">
-                {isAuthenticated ? authLinks : guestLinks}
+            <div className="nav-cont">
+            
+                <div className="cont">
+                    {isAuthenticated ? authLinks : guestLinks}
 
-            </div>
+                </div>
 
-            <div className="cont">
-                <div>
-                    <Link className="nav-link" to="/profiles"><i className="far fa-compass"></i></Link>
+                <div className="cont">
+                    <div>
+                        <Link className="nav-link" to="/profiles"><i className="far fa-compass"></i></Link>
 
-                    <Link className="nav-link" to="/profiles"><i className="far fa-heart"></i></Link>
+                        <Link className="nav-link" to="/profiles"><i className="far fa-heart"></i></Link>
 
-                    <Link className="nav-link" to="/"><i className="far fa-user"></i></Link>
+                        <Link className="nav-link" to="/"><i className="far fa-user"></i></Link>
+                    </div>
                 </div>
             </div>
         </nav>
