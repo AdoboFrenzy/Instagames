@@ -17,10 +17,10 @@ class Navbar extends React.Component {
 
     const authLinks = (
         <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-                <Link className="nav-link" to="/feed">
-                    Post Feed
-                </Link>
+            <li className="">
+                <Link className="nav-link-left" to="/feed">
+                    <i className="fab fa-instagram"></i>  <div className="instagram-logo">Instagames</div>
+                </Link> 
             </li>
             {/* <li className="nav-item">
                 <Link className="nav-link" to="/dashboard">
@@ -66,12 +66,13 @@ class Navbar extends React.Component {
             </div>
 
             <div className="cont">
-                <ul className="navbar-nav mr-auto">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/profiles"><i class="far fa-compass"></i></Link>
-                    </li>
-                </ul>
-                    <Link className="navbar-brand" to="/"><i class="far fa-user"></i></Link>
+                <div>
+                    <Link className="nav-link" to="/profiles"><i className="far fa-compass"></i></Link>
+
+                    <Link className="nav-link" to="/profiles"><i className="far fa-heart"></i></Link>
+
+                    <Link className="nav-link" to="/"><i className="far fa-user"></i></Link>
+                </div>
             </div>
         </nav>
       </div>
