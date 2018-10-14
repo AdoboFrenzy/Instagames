@@ -35,17 +35,19 @@ class PostItem extends React.Component {
     return (
         <div className="card card-body mb-3">
             <div className="row">
-                <div className="col-md-2">
+                <div className="">
                     <a href="profile.html">
                         <img 
-                            className="rounded-circle d-none d-md-block" 
+                            className="rounded-circle" 
                             src={post.avatar}
+                            style={{ width: '30px', marginLeft: '20px', marginRight: '5px' }}
                             alt="" 
                         />
                     </a>
-                    <br />
                     <p className="text-center">{post.name}</p>
                 </div>
+            </div>
+            <div className="row">
                 <div className="col-md-10">
                     <div className="picturethumbnail">
                         <img width="1280" height="720" className="imgthumbnail" src={post.image} />
