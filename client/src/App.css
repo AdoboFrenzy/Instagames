@@ -2,6 +2,10 @@ img {
   width: 100%;
 }
 
+/* .html {
+  height: 1100px;
+} */
+
 .landing {
   position: relative;
   background: url('./img/background.png') no-repeat;

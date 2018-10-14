@@ -31,10 +31,10 @@ class Dashboard extends React.Component {
             if(Object.keys(profile).length > 0) {
                 dashboardContent = (
                     <div>
-                        <p className="lead text-muted">
-                        Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
-                        </p>
-                        <ProfileActions />
+                        {/* <p className="lead text-muted">
+                            <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+                        </p> */}
+                        <ProfileActions user={user} profile={profile} />
                         <Experience experience={profile.experience} />
 
                         <div style={{ marginBottom: '60px' }} />
@@ -60,9 +60,9 @@ class Dashboard extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <h1 className="display-4">
+                            {/* <h1 className="display-4">
                                 Dashboard
-                            </h1>
+                            </h1> */}
                             {dashboardContent}
                         </div>
                     </div>
