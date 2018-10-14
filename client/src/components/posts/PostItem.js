@@ -51,7 +51,7 @@ class PostItem extends React.Component {
     }
 
     return (
-        <div className="card post-block mb-3">
+        <div className="card post-block mb-60">
             <div className="row post-header">
                 <div className="post-header-container">
                     <a href="profile.html" className="post-img">
@@ -92,7 +92,8 @@ class PostItem extends React.Component {
                     ) : null}
 
                     <p className="lead">
-                        {post.text}
+                        <div className="post-likes">{post.likes.length} likes</div>
+                        <div className="post-comment"><span>{post.name}</span> {post.text}</div>
                     </p>
                 </div>
             </div>
