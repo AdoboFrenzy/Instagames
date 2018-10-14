@@ -3,6 +3,7 @@ import {
     ADD_POST,
     GET_POST,
     GET_POSTS,
+    GET_CURRENT_USER_POSTS,
     POST_LOADING,
     DELETE_POST,
     GET_ERRORS,
@@ -34,6 +35,23 @@ export const getPosts = () => dispatch => {
         .then(res =>
             dispatch({
                 type: GET_POSTS,
+                payload: res.data
+            })
+        )
+        .catch(err => dispatch({
+            type: GET_POSTS,
+            payload: null
+        }));
+}
+
+// Get Current User Posts
+export const getCurrentUserPosts = () => dispatch => {
+    dispatch(setPostLoading());
+
+    axios.get('/api/posts')
+        .then(res =>
+            dispatch({
+                type: GET_CURRENT_USER_POSTS,
                 payload: res.data
             })
         )

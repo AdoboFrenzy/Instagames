@@ -97,6 +97,31 @@
     text-transform: uppercase;
 }
 
+.dashboard-img-feed {
+    display: inline-flex;
+    width: 950px;
+    /* height: 1000px; */
+}
+
+.dashboard-img {
+    height: 293px;
+    width: 293px;
+    margin: 0px;
+}
+
+
+.img-0 {
+    margin: 0 14px 28px 7.5px;
+}
+
+.img-1 {
+    margin: 0 14px 28px 14px;
+}
+
+.img-2 {
+    margin: 0 7.5px 28px 14px;
+}
+
 /* profile content */
 .profile {
     /* background-color: red; */

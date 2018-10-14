@@ -23,11 +23,25 @@ router.get('/test', (req, res) => res.json({ msg: "Posts Works" }));
 // @access  Public
 
 router.get('/', (req, res) => {
+    // console.log(req);
+
     Post.find()
         .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
+
+// @route   GET api/posts/currentUser
+// @desc    Get current user posts
+// @access  Public
+
+// router.get('/currentUser', (req, res) => {
+
+//     Post.find({ user: req.user.id })
+//         // .populate('post', ['post', 'name'])
+//         .then(posts => console.log(req))
+//         .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
+// });
 
 
 // @route   GET api/posts/:id

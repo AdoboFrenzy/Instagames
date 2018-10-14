@@ -6,13 +6,15 @@ import { withRouter } from 'react-router-dom';
 import { mapStateToProps, mapDispatchToProps } from './DashboardContainer';
 import Spinner from '../common/spinner';
 import ProfileActions from './profileActions';
-import Buttons from './Buttons'
-import Experience from './Experience'
+import Buttons from './Buttons';
+import Experience from './Experience';
+import Posts from './Posts/Posts';
 
 class Dashboard extends React.Component {
 
     componentDidMount() {
         this.props.getCurrentProfile();
+        this.props.getCurrentUserPosts();
     }
 
     logoutUser(e) {
@@ -28,7 +30,7 @@ class Dashboard extends React.Component {
     render() {
         const { user } = this.props.auth;
         const { profile, loading } = this.props.profile;
-        console.log(this.props)
+        const { posts } = this.props;
 
         let dashboardContent;
 
@@ -44,7 +46,7 @@ class Dashboard extends React.Component {
                         </p> */}
                         <ProfileActions user={user} profile={profile} logoutUser={this.logoutUser.bind(this)} deleteAccount={this.onDeleteClick.bind(this)} />
                         <Buttons />
-                        {/* <Posts /> */}
+                        <Posts posts={posts} />
 
                         {/* <Experience experience={profile.experience} /> */}
 
@@ -70,7 +72,7 @@ class Dashboard extends React.Component {
             <div className="dashboard">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-12">
+                        <div className="">
                             {/* <h1 className="display-4">
                                 Dashboard
                             </h1> */}
