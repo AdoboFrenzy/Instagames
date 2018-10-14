@@ -40,13 +40,13 @@ class Dashboard extends React.Component {
                         {/* <p className="lead text-muted">
                             <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
                         </p> */}
-                        <ProfileActions user={user} profile={profile} logoutUser={this.logoutUser.bind(this)} />
+                        <ProfileActions user={user} profile={profile} logoutUser={this.logoutUser.bind(this)} deleteAccount={this.onDeleteClick.bind(this)} />
                         {/* <Buttons /> */}
                         {/* <Posts /> */}
                         <Experience experience={profile.experience} />
 
                         <div style={{ marginBottom: '60px' }} />
-                        <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</button>
+                        {/* <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</button> */}
                     </div>
                 )
             } else {
