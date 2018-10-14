@@ -5,10 +5,10 @@ import PostItem from './PostItem';
 class PostFeed extends React.Component {
   render() {
 
-    const { posts } = this.props;
+    const { posts, profiles } = this.props;
 
     return (
-      posts.map((post) => <PostItem key={post._id} post={post} />)
+      posts.map((post) => <PostItem key={post._id} post={post} profiles={profiles} />)
     )
   }
 }

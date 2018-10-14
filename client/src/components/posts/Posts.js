@@ -11,16 +11,19 @@ class Posts extends React.Component {
     componentDidMount() {
         // console.log(this.props)
         this.props.getPosts();
+        this.props.getProfiles();
     }
 
     render() {
+        // console.log(this.props)
         const { posts, loading } = this.props.post;
+        const { profiles } = this.props;
         let postContent;
 
-        if(posts === null || loading) {
+        if((posts === null || profiles === null) || loading) {
             postContent = <Spinner />;
         } else {
-            postContent = <PostFeed posts={posts} />;
+            postContent = <PostFeed posts={posts} profiles={profiles} />;
         }
 
         return (

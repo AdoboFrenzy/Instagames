@@ -12,7 +12,17 @@ class PostItem extends React.Component {
     }
 
     onLikeClick(id) {
-        this.props.addLike(id);
+        const { post, auth } = this.props;
+
+        let postLikes = post.likes.map(like => like.user);
+        let currentUserId = auth.user.id;
+
+        if(postLikes.includes(currentUserId)) {
+            this.props.removeLike(id);
+        } else {
+            this.props.addLike(id);
+        }
+
     }
 
     onUnlikeClick(id) {
@@ -29,14 +39,22 @@ class PostItem extends React.Component {
     }
 
   render() {
-    const { post, auth, showActions } = this.props;
-    console.log(this.props)
+    const { post, auth, showActions, profiles } = this.props;
+
+    let postLocation;
+    console.log(this.props);
+
+    if(profiles && post) {
+        postLocation = profiles.filter((profile, i) => profile.user._id === post.user)[0].location
+    } else {
+        postLocation = 'Loading Location..'
+    }
 
     return (
-        <div className="card card-body mb-3">
-            <div className="row">
-                <div className="">
-                    <a href="profile.html">
+        <div className="card post-block mb-3">
+            <div className="row post-header">
+                <div className="post-header-container">
+                    <a href="profile.html" className="post-img">
                         <img 
                             className="rounded-circle" 
                             src={post.avatar}
@@ -44,36 +62,38 @@ class PostItem extends React.Component {
                             alt="" 
                         />
                     </a>
-                    <p className="text-center">{post.name}</p>
+                    <div className="post-info">
+                        <div className="text-left post-name">{post.name}</div>
+                        <div className="text-left post-location">{postLocation}</div>
+                    </div>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-md-10">
-                    <div className="picturethumbnail">
-                        <img width="1280" height="720" className="imgthumbnail" src={post.image} />
+            <div className="row post-pic">
+                <div className="col-md">
+                    <div className="post-picture picturethumbnail">
+                        <img width="800" height="600" className="imgthumbnail" src={post.image} />
                     </div>
-                    <p className="lead">
-                        {post.text}
-                    </p>
+
                     {showActions ? (
                         <span>
-                            <button onClick={this.onLikeClick.bind(this, post._id)} type="button" className="btn btn-light mr-1">
-                                <i className={classnames('fas fa-thumbs-up', { 'text-info': this.findUserLike(post.likes) })} />
-                                <span className="badge badge-light">{post.likes.length}</span>
+                            <button onClick={this.onLikeClick.bind(this, post._id)} type="button" className="btn btn-white">
+                                <i className={classnames('far fa-heart text-28', { 'fas fa-heart text-28 text-info': this.findUserLike(post.likes) })} />
+                                {/* <span className="badge badge-dark">{post.likes.length}</span> */}
                             </button>
-                            <button onClick={this.onUnlikeClick.bind(this, post._id)} type="button" className="btn btn-light mr-1">
-                                <i className="text-secondary fas fa-thumbs-down"></i>
-                            </button>
-                            <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
-                                Comments
+                            <Link to={`/post/${post._id}`} className="btn btn-white">
+                                <i className='far fa-comment text-28'></i>
                             </Link>
-                            {post.user === auth.user.id ? (
+                            {/* {post.user === auth.user.id ? (
                                 <button type="button" onClick={this.onDeleteClick.bind(this, post._id)} className="btn btn-danger mr-1">
                                     <i className="fas fa-times" />
                                 </button>
-                            ) : null}
+                            ) : null} */}
                         </span>
                     ) : null}
+
+                    <p className="lead">
+                        {post.text}
+                    </p>
                 </div>
             </div>
         </div>

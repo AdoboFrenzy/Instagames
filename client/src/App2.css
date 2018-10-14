@@ -166,10 +166,6 @@
 
 }
 
-.profile-content-2 {
-
-}
-
 .profile-content-2 ul {
     list-style: none;
     display: inline-flex;
@@ -202,6 +198,56 @@
 
 .delete-account:hover {
     cursor: pointer;
+}
+
+/* post feed */
+.post-header {
+    /* height: 27px; */
+}
+.post-header-container {
+    /* background-color: red; */
+    display: inline-flex;
+    width: 95%;
+    
+    margin: 0 auto;
+    padding: 16px 0;
+    border-bottom: 1px solid lightgrey;
+}
+
+.post-info {
+    margin-left: 10px;
+    line-height: 15px;
+}
+
+.post-name {
+    font-weight: 600;
+    color: #262626;
+}
+
+.post-location {
+    font-size: 12px;
+}
+
+.post-block {
+    width: 620px;
+    margin: 0 auto 0 10%;
+}
+
+.picturethumbnail {
+    padding: 0 0;
+}
+
+.text-28 {
+    font-size: 28px;
+    padding: 10px 0px 10px 10px;
+}
+
+.btn {
+    padding: 0px;
+}
+
+.text-info {
+    color: red !important;
 }
 
 

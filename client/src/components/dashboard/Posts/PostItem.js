@@ -10,7 +10,7 @@ class PostItem extends React.Component {
 
     render() {
         const { post, auth, col } = this.props;
-        console.log(this.props)
+        // console.log(this.props)
 
         return (
             <div className="dashboard-img-feed">

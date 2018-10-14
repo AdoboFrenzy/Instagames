@@ -6,7 +6,7 @@ import { deleteExperience } from '../../actions/profileActions';
 
 class Experience extends React.Component {
     onDeleteClick(id) {
-        console.log(id)
+        // console.log(id)
         this.props.deleteExperience(id)
     }
 
