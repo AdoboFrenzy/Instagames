@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const TextAreaFieldGroup = ({
     name,
-    image,
+    image = "",
     placeholder,
     value,
     error,
@@ -13,20 +13,22 @@ const TextAreaFieldGroup = ({
 }) => {
     return (
         <div className="form-group">
+
             <textarea
                 className={classnames('form-control form-control-lg', {
                     'is-invalid': error
                 })}
-                placeholder={placeholder}
+                placeholder={error ? error : placeholder}
                 name={name}
                 image={image}
                 value={value}
                 onChange={onChange}
             />
-            {info && <small className="form-text text-muted">{info}</small>}
-            {error && (
+            {/* {error && (
                 <div className="invalid-feedback">{error}</div>
-            )}
+            )} */}
+            {info && <small className="form-text text-muted">{info}</small>}
+
         </div>
     )
 };

@@ -2,7 +2,8 @@ import { addComment, getPost } from '../../actions/postActions';
 
 export const mapStateToProps = (state) => ({
     auth: state.auth,
-    errors: state.errors
+    errors: state.errors,
+    state: state
 })
 
 export const mapDispatchToProps = dispatch => ({

@@ -2,6 +2,10 @@
     background-color: #f8f9fa;
 }
 
+.is-invalid::placeholder {
+    color: red !important;
+}
+
 /* navbar */
 
 .navbar {
@@ -274,6 +278,39 @@
     font-family: "Helvetica";
     padding-bottom: 5px;
 }
+
+.comment-input {
+    border-top: 1px solid lightgrey;
+    margin-left: 15px;
+    width: 95%;
+    height: 65px;
+    padding: 10px 0;
+}
+
+.comment-input form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-input button {
+    height: 40px;
+}
+
+.comment-input .form-group .form-control {
+    /* background-color: red; */
+    width: 250%;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    padding-left: 0px;
+    border: none;
+    overflow: auto;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+}
+
+
 
 
 /* footer */

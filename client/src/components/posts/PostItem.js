@@ -3,9 +3,34 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import { deletePost, addLike, removeLike, getPost, getPosts } from '../../actions/postActions';
+import CommentForm from '../post/CommentForm';
+import CommentFeed2 from './CommentFeed2';
 
 class PostItem extends React.Component {
+
+    constructor() {
+        super()
+
+        this.state = {
+            comments: []
+        }
+
+        this.refreshComments = this.refreshComments.bind(this);
+    }
+
+    componentDidUpdate(prevProps, nextProps) {
+        // console.log(nextProps);
+        // this.props.getPost(nextProps._id);
+    }
+
+    refreshComments(id) {
+        this.props.getPosts();
+
+        // window.location.reload();
+
+        
+    }
 
     onDeleteClick(id) {
         this.props.deletePost(id);
@@ -42,7 +67,7 @@ class PostItem extends React.Component {
     const { post, auth, showActions, profiles } = this.props;
 
     let postLocation;
-    console.log(this.props);
+    // console.log(this.props);
 
     if(profiles && post) {
         postLocation = profiles.filter((profile, i) => profile.user._id === post.user)[0].location
@@ -94,7 +119,10 @@ class PostItem extends React.Component {
                     <p className="lead">
                         <div className="post-likes">{post.likes.length} likes</div>
                         <div className="post-comment"><span>{post.name}</span> {post.text}</div>
+                        <CommentFeed2 comments={post.comments} postId={post._id} />
+                        
                     </p>
+                    <CommentForm postId={post._id} refresh={this.refreshComments}/>
                 </div>
             </div>
         </div>
@@ -118,7 +146,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     deletePost: (id) => dispatch(deletePost(id)),
     addLike: (id) => dispatch(addLike(id)),
-    removeLike: (id) => dispatch(removeLike(id))
+    removeLike: (id) => dispatch(removeLike(id)),
+    getPost: (id) => dispatch(getPost(id)),
+    getPosts: () => dispatch(getPosts())
 });
 
 

@@ -7,6 +7,16 @@ import Spinner from '../common/spinner';
 import { mapStateToProps, mapDispatchToProps } from './PostsContainer';
 
 class Posts extends React.Component {
+
+    constructor() {
+        super() 
+
+        this.state = {
+            newComment: ''
+        }
+
+        
+    }
     
     componentDidMount() {
         // console.log(this.props)
@@ -16,7 +26,7 @@ class Posts extends React.Component {
 
     render() {
         // console.log(this.props)
-        const { posts, loading } = this.props.post;
+        const { post, posts, loading } = this.props.post;
         const { profiles } = this.props;
         let postContent;
 

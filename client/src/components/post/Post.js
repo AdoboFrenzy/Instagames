@@ -24,8 +24,8 @@ class Post extends React.Component {
         postContent = (
             <div>
                 <PostItem post={post} showActions={false} />
-                <CommentForm postId={post._id} />
-                <CommentFeed postId={post._id} comments={post.comments} />
+                {/* <CommentForm postId={post._id} /> */}
+                {/* <CommentFeed postId={post._id} comments={post.comments} /> */}
             </div>
         );
     }

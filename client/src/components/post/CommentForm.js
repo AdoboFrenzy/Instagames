@@ -10,6 +10,7 @@ class CommentForm extends React.Component {
 
         this.state = {
             text: '',
+            new: '',
             errors: {}
         }
 
@@ -27,6 +28,10 @@ class CommentForm extends React.Component {
         // this.props.getPost(this.props.postId);
     }
 
+    componentDidUpdate(prevProps, nextProps) {
+        // console.log(nextProps);
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -39,7 +44,10 @@ class CommentForm extends React.Component {
             avatar: user.avatar
         }
 
-        this.props.addComment(postId, newComment);
+        
+        this.props.addComment(postId, newComment)
+        setTimeout(window.location = `/post/${postId}`, 1000);
+        
         this.setState({ text: '' })
     }
 
@@ -51,28 +59,19 @@ class CommentForm extends React.Component {
         const { errors } = this.state;
 
         return (
-            <div>
-                <div className="post-form mb-3">
-                    <div className="card card-info">
-                        <div className="card-header bg-info text-white">
-                            Make a comment for this post
-            </div>
-                        <div className="card-body">
-                            <form onSubmit={this.onSubmit}>
-                                <div className="form-group">
-                                    <TextAreaFieldGroup
-                                        placeholder="Reply to post"
-                                        name="text"
-                                        value={this.state.text}
-                                        onChange={this.onChange}
-                                        error={errors.text}
-                                    />
-                                </div>
-                                <button type="submit" className="btn btn-dark">Submit</button>
-                            </form>
-                        </div>
+            <div className="comment-input">
+                <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <TextAreaFieldGroup
+                            placeholder="Add a comment..."
+                            name="text"
+                            value={this.state.text}
+                            onChange={this.onChange}
+                            error={errors.text}
+                        />
                     </div>
-                </div>
+                    <button type="submit" className="btn btn-light"><i className="far fa-check-square"></i></button>
+                </form>
             </div>
         )
     }

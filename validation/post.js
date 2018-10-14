@@ -11,9 +11,9 @@ module.exports = function validatePostInput(data) {
         errors.text = 'Post must be between 6 and 300 characters';
     }
 
-    if (Validator.isEmpty(data.image)) {
-        errors.image = 'An Image is Required';
-    }
+    // if (Validator.isEmpty(data.image)) {
+    //     errors.image = 'An Image is Required';
+    // }
 
     if (Validator.isEmpty(data.text)) {
         errors.text = 'Text field is required';
