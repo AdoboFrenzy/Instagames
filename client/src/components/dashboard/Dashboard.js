@@ -14,6 +14,12 @@ class Dashboard extends React.Component {
         this.props.getCurrentProfile();
     }
 
+    logoutUser(e) {
+        e.preventDefault();
+        this.props.clearCurrentProfile();
+        this.props.logoutUser();
+    }
+
     onDeleteClick(e) {
         this.props.deleteAccount();
     }
@@ -34,7 +40,9 @@ class Dashboard extends React.Component {
                         {/* <p className="lead text-muted">
                             <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
                         </p> */}
-                        <ProfileActions user={user} profile={profile} />
+                        <ProfileActions user={user} profile={profile} logoutUser={this.logoutUser.bind(this)} />
+                        {/* <Buttons /> */}
+                        {/* <Posts /> */}
                         <Experience experience={profile.experience} />
 
                         <div style={{ marginBottom: '60px' }} />

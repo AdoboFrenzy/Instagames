@@ -5,7 +5,7 @@ class ProfileActions extends React.Component {
 
     render() {
         const { user, profile } = this.props;
-        // console.log(this.props)
+        console.log(this.props)
 
         let profileContent3;
 
@@ -31,7 +31,7 @@ class ProfileActions extends React.Component {
 
                         <Link to="edit-profile" className="edit-profile btn btn-light">Edit Profile</Link>
         
-                        <Link to="" className="logout"><i className="fas fa-sign-out-alt"></i></Link>
+                        <div className="logout"><i onClick={this.props.logoutUser} className="fas fa-sign-out-alt"></i></div>
                         {/* <Link to="add-experience" className="btn btn-light">
                             <i className="fab fa-black-tie text-info mr-1"></i>
                             Add Game Experience</Link> */}

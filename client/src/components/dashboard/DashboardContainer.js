@@ -1,4 +1,4 @@
-import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
+import { getCurrentProfile, deleteAccount, clearCurrentProfile } from '../../actions/profileActions';
 import { logoutUser } from '../../actions/authActions';
 
 export const mapStateToProps = (state, ownProps) => ({
@@ -10,6 +10,7 @@ export const mapStateToProps = (state, ownProps) => ({
 export const mapDispatchToProps = (dispatch) => ({
     getCurrentProfile: () => dispatch(getCurrentProfile()),
     deleteAccount: () => dispatch(deleteAccount()),
-    logoutUser: () => dispatch(logoutUser())
+    logoutUser: () => dispatch(logoutUser()),
+    clearCurrentProfile: () => dispatch(clearCurrentProfile())
 });
 
