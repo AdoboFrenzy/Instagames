@@ -69,6 +69,34 @@
     max-width: 950px;
 }
 
+.dashboard-buttons {
+    /* background-color: red; */
+    width: 950px;
+    height: 53px;
+    border-top: 1px solid #efefef;
+    text-align: center;
+}
+
+.dashboard-buttons ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.dashboard-buttons i {
+    margin-right: 3px;
+}
+
+.dashboard-buttons li {
+    width: 64px;
+    color: #262626;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0px auto;
+    padding: 13px 0;
+    border-top: 1px solid black;
+    text-transform: uppercase;
+}
+
 /* profile content */
 .profile {
     /* background-color: red; */

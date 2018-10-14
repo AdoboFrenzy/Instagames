@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { mapStateToProps, mapDispatchToProps } from './DashboardContainer';
 import Spinner from '../common/spinner';
 import ProfileActions from './profileActions';
+import Buttons from './Buttons'
 import Experience from './Experience'
 
 class Dashboard extends React.Component {
@@ -27,6 +28,7 @@ class Dashboard extends React.Component {
     render() {
         const { user } = this.props.auth;
         const { profile, loading } = this.props.profile;
+        console.log(this.props)
 
         let dashboardContent;
 
@@ -41,11 +43,12 @@ class Dashboard extends React.Component {
                             <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
                         </p> */}
                         <ProfileActions user={user} profile={profile} logoutUser={this.logoutUser.bind(this)} deleteAccount={this.onDeleteClick.bind(this)} />
-                        {/* <Buttons /> */}
+                        <Buttons />
                         {/* <Posts /> */}
-                        <Experience experience={profile.experience} />
 
-                        <div style={{ marginBottom: '60px' }} />
+                        {/* <Experience experience={profile.experience} /> */}
+
+                        {/* <div style={{ marginBottom: '60px' }} /> */}
                         {/* <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</button> */}
                     </div>
                 )
