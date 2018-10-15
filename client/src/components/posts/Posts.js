@@ -12,10 +12,10 @@ class Posts extends React.Component {
         super() 
 
         this.state = {
-            newComment: ''
+            showPostForm: false
         }
 
-        
+        this.addPost = this.addPost.bind(this);
     }
     
     componentDidMount() {
@@ -24,11 +24,36 @@ class Posts extends React.Component {
         this.props.getProfiles();
     }
 
+    addPost() {
+        console.log('add post')
+
+        if(this.state.showPostForm) {
+
+            this.setState({ showPostForm: false })
+        } else {
+
+            this.setState({ showPostForm: true })
+        }
+    }
+
     render() {
         // console.log(this.props)
         const { post, posts, loading } = this.props.post;
         const { profiles } = this.props;
-        let postContent;
+        let postContent, postForm;
+
+        if(this.state.showPostForm) {
+            postForm = (<div className="dropzone-text-container-2" onClick={this.addPost}>
+                {/* <p> Hide Post Form - <i className="fa fa-camera" aria-hidden="true"></i></p> */}
+                <PostForm addPost={this.addPost} />
+            </div>)
+        } else {
+
+            postForm = (<div className="dropzone-text-container" onClick={this.addPost}>
+                <p> Add a Post Here - <i className="fa fa-camera" aria-hidden="true"></i></p>
+            </div>)
+        }
+        
 
         if((posts === null || profiles === null) || loading) {
             postContent = <Spinner />;
@@ -41,7 +66,7 @@ class Posts extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <PostForm />
+                            {postForm}
                             {postContent}
                         </div>
                     </div>

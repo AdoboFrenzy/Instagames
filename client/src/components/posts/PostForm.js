@@ -75,8 +75,8 @@ class PostForm extends React.Component {
         // console.log(this.state)
         if (this.state.image === '') {
             return (
-                <div className="dropzone-text-container">
-                    <p>Drop an image or click (<i className="fa fa-camera" aria-hidden="true"></i>) to select a file to upload. </p>
+                <div className="btn btn-light attach-btn">
+                    <div> Attach - <i className="fa fa-camera" aria-hidden="true"></i></div>
                 </div>
             );
         } else {
@@ -95,9 +95,6 @@ class PostForm extends React.Component {
         <div>
         <div className="post-form mb-3">
             <div className="card card-info">
-                <div className="card-header bg-info text-white">
-                    Attach a screenshot and add a caption
-            </div>
                 <Dropzone
                     multiple={false}
                     accept="image/*"
@@ -105,11 +102,11 @@ class PostForm extends React.Component {
                     {this.picturethumbnail()}
 
                 </Dropzone>
-                <div className="card-body">
+                <div className="">
                     <form onSubmit={this.onSubmit}>
-                        <div className="form-group">
+                        <div className="form-group-post">
                             <TextAreaFieldGroup 
-                                placeholder="Create a post"
+                                placeholder="Add a post heading.."
                                 name="text"
                                 image={this.state.image || ''}
                                 value={this.state.text}
@@ -129,8 +126,8 @@ class PostForm extends React.Component {
 
 PostForm.propTypes = {
     addPost: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired
+    // errors: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
