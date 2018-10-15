@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PostForm from './PostForm';
 import PostFeed from './PostFeed';
+import SideFeed from './SideFeed';
 import Spinner from '../common/spinner';
 import { mapStateToProps, mapDispatchToProps } from './PostsContainer';
 
@@ -38,10 +39,13 @@ class Posts extends React.Component {
     }
 
     render() {
-        // console.log(this.props)
+        
         const { post, posts, loading } = this.props.post;
-        const { profiles } = this.props;
-        let postContent, postForm;
+        const { auth, profiles } = this.props;
+        const currentUser = auth.user;
+        let postContent, postForm, sideContent;
+
+        // console.log(profiles);
 
         if(this.state.showPostForm) {
             postForm = (<div className="dropzone-text-container-2">
@@ -54,13 +58,15 @@ class Posts extends React.Component {
                 <p><i class="fas fa-plus"></i>  <i className="fa fa-camera" aria-hidden="true"></i></p>
             </div>)
         }
-        
 
         if((posts === null || profiles === null) || loading) {
             postContent = <Spinner />;
         } else {
             postContent = <PostFeed posts={posts} profiles={profiles} />;
+            sideContent = <SideFeed currentUser={currentUser} profiles={profiles} />;
         }
+
+
 
         return (
             <div className="feed">
@@ -68,7 +74,7 @@ class Posts extends React.Component {
                     <div className="feed-row row">
                         <div className="col-md-12 post-feed">
                             <div className="side-post-feed">
-                                Side Post
+                                {sideContent}
                             </div>
                             {postForm}
                             {postContent}
