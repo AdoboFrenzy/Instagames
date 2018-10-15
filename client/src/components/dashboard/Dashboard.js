@@ -44,7 +44,13 @@ class Dashboard extends React.Component {
                         {/* <p className="lead text-muted">
                             <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
                         </p> */}
-                        <ProfileActions user={user} profile={profile} logoutUser={this.logoutUser.bind(this)} deleteAccount={this.onDeleteClick.bind(this)} />
+                        <ProfileActions 
+                            user={user} 
+                            profile={profile} 
+                            logoutUser={this.logoutUser.bind(this)} 
+                            deleteAccount={this.onDeleteClick.bind(this)} 
+                            posts={posts}
+                            />
                         <Buttons />
                         <Posts posts={posts} />
 

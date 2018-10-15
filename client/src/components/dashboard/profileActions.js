@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 class ProfileActions extends React.Component {
 
     render() {
-        const { user, profile } = this.props;
-        // console.log(this.props)
+        const { user, profile, posts } = this.props;
+        console.log(this.props)
 
         let profileContent3;
 
@@ -43,9 +43,9 @@ class ProfileActions extends React.Component {
 
                     <div className="profile-content-2">
                         <ul>
-                            <li><span>42 Posts</span></li>
-                            <li><span>100 Followers</span></li>
-                            <li><span>200 Following</span></li>
+                            <li><span>{posts.length} Screenshot Posts</span></li>
+                            {/* <li><span>100 Followers</span></li>
+                            <li><span>200 Following</span></li> */}
                         </ul>
                     </div>
 

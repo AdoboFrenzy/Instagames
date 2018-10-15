@@ -15,7 +15,9 @@ class Posts extends React.Component {
             showPostForm: false
         }
 
+        // this.child = React.createRef();
         this.addPost = this.addPost.bind(this);
+        // this.handleAddPost = this.handleAddPost.bind(this);
     }
     
     componentDidMount() {
@@ -25,7 +27,6 @@ class Posts extends React.Component {
     }
 
     addPost() {
-        console.log('add post')
 
         if(this.state.showPostForm) {
 
@@ -43,14 +44,14 @@ class Posts extends React.Component {
         let postContent, postForm;
 
         if(this.state.showPostForm) {
-            postForm = (<div className="dropzone-text-container-2" onClick={this.addPost}>
+            postForm = (<div className="dropzone-text-container-2">
                 {/* <p> Hide Post Form - <i className="fa fa-camera" aria-hidden="true"></i></p> */}
                 <PostForm addPost={this.addPost} />
             </div>)
         } else {
 
             postForm = (<div className="dropzone-text-container" onClick={this.addPost}>
-                <p> Add a Post Here - <i className="fa fa-camera" aria-hidden="true"></i></p>
+                <p><i class="fas fa-plus"></i>  <i className="fa fa-camera" aria-hidden="true"></i></p>
             </div>)
         }
         
@@ -64,10 +65,14 @@ class Posts extends React.Component {
         return (
             <div className="feed">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
+                    <div className="feed-row row">
+                        <div className="col-md-12 post-feed">
+                            <div className="side-post-feed">
+                                Side Post
+                            </div>
                             {postForm}
                             {postContent}
+                        
                         </div>
                     </div>
                 </div>

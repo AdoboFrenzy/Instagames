@@ -76,7 +76,7 @@ class PostForm extends React.Component {
         if (this.state.image === '') {
             return (
                 <div className="btn btn-light attach-btn">
-                    <div> Attach - <i className="fa fa-camera" aria-hidden="true"></i></div>
+                    <div> <i class="fas fa-paperclip"></i>  <i className="fa fa-camera" aria-hidden="true"></i></div>
                 </div>
             );
         } else {
@@ -114,7 +114,7 @@ class PostForm extends React.Component {
                                 error={errors.text}
                             />
                         </div>
-                        <button type="submit" className="btn btn-dark">Submit</button>
+                            <button type="submit" className="btn btn-light post-submit-btn"><i className="far fa-check-square"></i></button>
                     </form>
                 </div>
             </div>
