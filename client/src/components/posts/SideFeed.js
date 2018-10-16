@@ -13,7 +13,7 @@ class PostFeed extends React.Component {
         return (
             <div>
                 <div className="side-header-container">
-                    <a href="profile.html" className="post-img">
+                    <a href="/dashboard" className="post-img">
                         <img
                             className="rounded-circle"
                             src={currentUser.avatar}

@@ -4,11 +4,14 @@ class SideFeedItem extends React.Component {
   render() {
 
     const { profile } = this.props;
+    const { handle } = this.props.profile;
+
+    console.log(this.props)
 
     return (
 
         <div className="side-profile-container">
-            <a href="profile.html" className="post-img">
+            <a href={"profile/" + handle} className="post-img">
                 <img
                     className="rounded-circle"
                     src={profile.user.avatar}
