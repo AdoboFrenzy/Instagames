@@ -73,6 +73,9 @@ class CreateProfile extends React.Component {
     
     render() {
         const { errors, displaySocialInputs } = this.state;
+        const { auth } = this.props;
+
+        console.log(auth)
 
         let socialInputs;
 
@@ -84,6 +87,7 @@ class CreateProfile extends React.Component {
                         name="twitch"
                         icon="fab fa-twitch"
                         onChange={this.onChange}
+                        profilechanges='profilechanges'
                         error={errors.twitch}
                     />
       
@@ -92,6 +96,7 @@ class CreateProfile extends React.Component {
                         name="discord"
                         icon="fab fa-discord"
                         onChange={this.onChange}
+                        profilechanges='profilechanges'
                         error={errors.discord}
                     />
       
@@ -100,6 +105,7 @@ class CreateProfile extends React.Component {
                         name="twitter"
                         icon="fab fa-twitter"
                         onChange={this.onChange}
+                        profilechanges='profilechanges'
                         error={errors.twitter}
                     />
       
@@ -109,6 +115,7 @@ class CreateProfile extends React.Component {
                         name="instagram"
                         icon="fab fa-instagram"
                         onChange={this.onChange}
+                        profilechanges='profilechanges'
                         error={errors.instagram}
                     />
       
@@ -117,6 +124,7 @@ class CreateProfile extends React.Component {
                         name="youtube"
                         icon="fab fa-youtube"
                         onChange={this.onChange}
+                        profilechanges='profilechanges'
                         error={errors.youtube}
                     />
                 </div>
@@ -134,73 +142,132 @@ class CreateProfile extends React.Component {
         ];
 
         return (
-            <div className="create-profile">
+            <div className="create-profile-form">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Create Your Profile</h1>
+                        <div className="left-col">
+                            <div>Edit Profile</div>
+                        </div>
+                        <div className="right-col">
+                            {/* <h1 className="display-4 text-center">Create Your Profile</h1>
                             <p className="lead text-center">
                                 Let's get some information to make your profile stand out
-                            </p>
+                            </p> */}
                             <small className="d-block pb-3">* = required fields</small>
                             <form onSubmit={this.onSubmit}>
-                                <TextFieldGroup 
-                                    placeholder="* Profile Handle"
-                                    name="handle"
-                                    value={this.state.handle}
-                                    onChange={this.onChange}
-                                    error={errors.handle}
-                                    info="A unique handle for your profile URL."
-                                />
-                                <SelectListGroup
-                                    placeholder="* Status"
-                                    name="status"
-                                    value={this.state.status}
-                                    onChange={this.onChange}
-                                    options={options}
-                                    error={errors.status}
-                                    info="Give us an idea of what type of gamer you are"
-                                />
-                                <TextFieldGroup
-                                    placeholder="Team or Company"
-                                    name="company"
-                                    value={this.state.company}
-                                    onChange={this.onChange}
-                                    error={errors.company}
-                                    info="A team or company that sponsors you or leave this blank"
-                                />
-                                <TextFieldGroup
-                                    placeholder="Location"
-                                    name="location"
-                                    value={this.state.location}
-                                    onChange={this.onChange}
-                                    error={errors.location}
-                                    info="City and State"
-                                />
-                                <TextFieldGroup
-                                    placeholder="* Game Types"
-                                    name="skills"
-                                    value={this.state.skills}
-                                    onChange={this.onChange}
-                                    error={errors.skills}
-                                    info="Types of games you play (ex. RPG, Strategy, Boardgames, First Person Shooters)"
-                                />
-                                <TextFieldGroup
-                                    placeholder="Twitch or Discord Username"
-                                    name="githubusername"
-                                    value={this.state.githubusername}
-                                    onChange={this.onChange}
-                                    error={errors.githubusername}
-                                    info="Twitch or Discord Username - so people can contact you"
-                                />
-                                <TextAreaFieldGroup
-                                    placeholder="Short Bio"
-                                    name="bio"
-                                    value={this.state.bio}
-                                    onChange={this.onChange}
-                                    error={errors.bio}
-                                    info="Tell us about yourself"
-                                />
+                                <div className="labelfieldgroup">
+                                    <div className="label">Name</div>
+                                    <TextFieldGroup 
+                                        placeholder="Name"
+                                        name="Name"
+                                        value={auth.user.name}
+                                        onChange={this.onChange}
+                                        error={errors.handle}
+                                        profilechanges='profilechanges'
+                                        // info="Your registered name (can't be changed for now)"
+                                    />
+                                </div>
+                                <div className="labelfieldgroup">
+                                    <div className="label">* Unique Handle</div>
+                                    <TextFieldGroup 
+                                        // placeholder="* Profile Handle"
+                                        name="handle"
+                                        value={this.state.handle}
+                                        onChange={this.onChange}
+                                        error={errors.handle}
+                                        profilechanges='profilechanges'
+                                        // info="A unique handle for your profile URL."
+                                    />
+                                </div>
+                                <div className="labelfieldgroup">
+                                    <div className="label">Gamer Type</div>
+                                    <SelectListGroup
+                                        // placeholder="* Status"
+                                        name="status"
+                                        value={this.state.status}
+                                        onChange={this.onChange}
+                                        options={options}
+                                        error={errors.status}
+                                        profilechanges='profilechanges'
+                                        // info="Give us an idea of what type of gamer you are"
+                                    />
+                                </div>
+                                <div className="labelfieldgroup">
+                                    <div className="label">Team Sponsor</div>
+                                    <TextFieldGroup
+                                        // placeholder="Team or Company"
+                                        name="company"
+                                        value={this.state.company}
+                                        onChange={this.onChange}
+                                        error={errors.company}
+                                        profilechanges='profilechanges'
+                                        // info="A team or company that sponsors you or leave this blank"
+                                    />
+                                </div>
+                                <div className="labelfieldgroup">
+                                    <div className="label">* Game Types</div>
+                                    <TextFieldGroup
+                                        placeholder="(ex: RPG, Strategy, Boardgames)"
+                                        name="skills"
+                                        value={this.state.skills}
+                                        onChange={this.onChange}
+                                        error={errors.skills}
+                                        profilechanges='profilechanges'
+                                        // info="Types of games you play (ex. RPG, Strategy, Boardgames, First Person Shooters)"
+                                    />
+                                </div>
+                                <div className="labelfieldgroup">
+                                    <div className="label">Bio</div>
+                                    <TextAreaFieldGroup
+                                        // placeholder="Short Bio"
+                                        name="bio"
+                                        value={this.state.bio}
+                                        onChange={this.onChange}
+                                        error={errors.bio}
+                                        profilechanges='profilechanges'
+                                        // info="Tell us about yourself"
+                                    />
+                                </div>
+
+                                <div className="profile-private-info">Private Information</div>
+
+                                <div className="labelfieldgroup">
+                                    <div className="label">Email</div>
+                                    <TextFieldGroup
+                                        placeholder="email"
+                                        name="email"
+                                        value={auth.user.email}
+                                        onChange={this.onChange}
+                                        error={errors.location}
+                                        profilechanges='profilechanges'
+                                        // info="Your registered e-mail (can't be change for now)"
+                                    />
+                                </div>
+                                <div className="labelfieldgroup">
+                                    <div className="label">Location</div>
+                                    <TextFieldGroup
+                                        // placeholder="Location"
+                                        name="location"
+                                        value={this.state.location}
+                                        onChange={this.onChange}
+                                        error={errors.location}
+                                        profilechanges='profilechanges'
+                                        // info="City and State"
+                                    />
+                                </div>
+                                <div className="labelfieldgroup">
+                                    <div className="label">Discord</div>
+                                    <TextFieldGroup
+                                        // placeholder="Twitch or Discord Username"
+                                        name="githubusername"
+                                        value={this.state.githubusername}
+                                        onChange={this.onChange}
+                                        error={errors.githubusername}
+                                        profilechanges='profilechanges'
+                                        // info="Twitch or Discord Username - so people can contact you"
+                                    />
+                                </div>
+
                                 <div className="mb-3">
                                     <button 
                                         type="button"

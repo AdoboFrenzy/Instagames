@@ -64,9 +64,9 @@ class Dashboard extends React.Component {
                 // User is logged in but has no profile
                 dashboardContent = (
                     <div>
-                        <p className="lead text-muted">Welcome { user.name }</p>
+                        <p className="lead text-muted">Welcome { user.name }!</p>
                         <p>You have not created a profile. Please create one!</p>
-                        <Link to="/create-profile" className="btn btn-lg btn-info">
+                        <Link to="/create-profile" className="btn btn-lg btn-info btn-createprofile">
                             Create Profile
                         </Link>
                     </div>
@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
         }
 
         return (
-            <div className="dashboard">
+            <div className="dashboard create-profile-dashboard">
                 <div className="container">
                     <div className="row">
                         <div className="">

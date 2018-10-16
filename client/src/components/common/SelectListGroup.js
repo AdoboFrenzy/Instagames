@@ -8,7 +8,8 @@ const SelectListGroup = ({
     error,
     info,
     onChange,
-    options
+    options,
+    profilechanges
 }) => {
     const selectOptions = options.map(option => (
         <option key={option.label} value={option.value}>
@@ -20,7 +21,8 @@ const SelectListGroup = ({
         <div className="form-group">
             <select
                 className={classnames('form-control form-control-lg', {
-                    'is-invalid': error
+                    'is-invalid': error,
+                    profilechanges
                 })}
                 name={name}
                 value={value}

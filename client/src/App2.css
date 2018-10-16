@@ -68,6 +68,11 @@
 }
 
 /* landing */
+.landing h1 {
+    font-family: 'Rancho', cursive;
+    font-size: 96px;
+}
+
 .btn-start {
     padding: 10px 20px !important;
 }
@@ -218,9 +223,83 @@
     margin: 0 7.5px 28px 14px;
 }
 
+/* create profile */
+.btn-createprofile {
+    color: #212529;
+    background-color: white;
+    padding: 5px 15px !important;
+    border: 1px solid #efefef;
+}
+
+.create-profile-dashboard {
+    min-height: 710px;
+}
+
+.create-profile-form {
+    /* width: 100%; */
+    margin: 0 auto;
+    
+}
+
+.create-profile-form .row {
+    width: 100%;
+    margin: 36px auto 0px;
+    display: inline-flex;
+}
+
+.create-profile-form .left-col {
+    background-color: white;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: #dbdbdb;
+    margin-left: 7%;
+    width: 21.75%;
+}
+
+.create-profile-form .left-col div {
+    padding: 15px 0 15px 30px;
+    font-weight: 600;
+    border-left: 2px solid black;
+}
+
+.create-profile-form .right-col {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    width: 64.25%;
+    margin-right: 7%;
+}
+
+.profilechanges {
+    /* background-color: red; */
+    width: 68%;
+    margin: 0px 25px !important;
+    /* margin: 25px 0 25px 50px; */
+    
+}
+
+.labelfieldgroup {
+    /* background-color: red; */
+    display: flex;
+}
+
+.labelfieldgroup .label {
+    /* background-color: red; */
+    margin: 0.75rem 0px;
+    width: 150px;
+    text-align: right;
+}
+
+.profile-private-info {
+    /* background-color: red; */
+    margin-left: 175px;
+    margin-bottom: 15px;
+    color: #999;
+    font-size: 14px;
+    font-weight: 600;
+}
+
 /* profile content */
 .profile {
-    /* background-color: red; */
     width: 800px;
     height: 152px;
     margin: 36px 75px 44px 75px;

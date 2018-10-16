@@ -9,7 +9,8 @@ const InputGroup = ({
     error,
     icon,
     type,
-    onChange
+    onChange,
+    profilechanges
 }) => {
     return (
         <div className="input-group mb-3">
@@ -20,7 +21,8 @@ const InputGroup = ({
             </div>
             <input
                 className={classnames('form-control form-control-lg', {
-                    'is-invalid': error
+                    'is-invalid': error,
+                    profilechanges
                 })}
                 placeholder={placeholder}
                 name={name}

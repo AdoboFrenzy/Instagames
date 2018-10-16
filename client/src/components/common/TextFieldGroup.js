@@ -14,7 +14,8 @@ const TextFieldGroup = ({
     disabled,
     loginEmail,
     loginInput,
-    registerInput
+    registerInput,
+    profilechanges
 }) => {
     return (
         <div className="form-group">
@@ -24,7 +25,8 @@ const TextFieldGroup = ({
                     'is-invalid': error,
                     loginEmail,
                     loginInput,
-                    registerInput
+                    registerInput,
+                    profilechanges
                 })}
                 placeholder={placeholder}
                 name={name}

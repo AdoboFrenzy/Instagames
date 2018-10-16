@@ -54,7 +54,7 @@ img {
   color: #bbb !important;
 }
 
-/* .form-group {
-  background-color: red;
-  height: 71px;
-} */
+.form-group {
+  /* background-color: red; */
+  width: 75%;
+}
