@@ -58,6 +58,7 @@ class App extends React.Component {
         <Router>
           <div className="App">
             <Navbar />
+              {/* <PrivateRoute component={Navbar} /> */}
               <Route exact path="/" component={Landing} />
               <div className="container">
                 <Route exact path="/register" component={Register} />

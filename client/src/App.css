@@ -12,7 +12,7 @@ img {
   background-color: white;
   background-size: cover;
   background-position: center;
-  height: 87.5vh;
+  height: 79.5vh;
   margin-top: -24px;
   margin-bottom: -50px;
 }
@@ -30,16 +30,15 @@ img {
   height: 100%;
 }
 
-/* .vsc-initialized {
-  
-} */
-
 .register {
-  height: 80.15vh;
+  /* height: 80.15vh; */
+
 }
 
 .login {
-  height: 80.15vh;
+  /* height: 80.15vh; */
+  min-height: 28.5vh;
+  background-color: white;
 }
 
 .card-form {

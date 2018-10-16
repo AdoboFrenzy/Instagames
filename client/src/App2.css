@@ -72,6 +72,93 @@
     padding: 10px 20px !important;
 }
 
+/* login */
+.login {
+    width: 350px;
+    /* height: 65.25vh; */
+    margin: 90px auto 0;
+    border: 1px solid #e6e6e6;
+}
+
+.login h1 {
+    margin-top: 25px;
+    font-family: 'Rancho', cursive;
+    color: black;
+    /* font-size: 30px; */
+}
+
+.loginInput {
+    /* background-color: red; */
+    width: 266px;
+    height: 36px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.btn-login {
+    width: 266px !important;
+    margin: 20px auto;
+    padding: 2px 0 !important;
+    background-color: #3897f0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.signup {
+    width: 350px;
+    /* height: 65.25vh; */
+    background-color: white;
+    margin: 10px auto 335px;
+    border: 1px solid #e6e6e6;
+
+}
+
+.signup div {
+    text-align: center;
+    /* margin: 0 auto; */
+    padding: 20px 0;
+    color: #262626;
+    font-size: 14px;
+}
+
+/* register */
+.register {
+    width: 350px;
+    /* height: 65.25vh; */
+    margin: 90px auto 0;
+    border: 1px solid #e6e6e6;
+    background-color: white;
+}
+
+.register h1 {
+    margin-top: 25px;
+    font-family: 'Rancho', cursive;
+    color: black;
+    /* font-size: 30px; */
+}
+
+
+.btn-register {
+    width: 266px !important;
+    margin: 20px auto;
+    padding: 2px 0 !important;
+    background-color: #3897f0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.registerInput {
+    /* background-color: red; */
+    width: 266px;
+    height: 36px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.signup2 {
+    margin-bottom: 250px !important;
+}
+
 /* dashboard */
 .dashboard .container {
     /* background-color: red; */

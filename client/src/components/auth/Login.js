@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { mapStateToProps, mapDispatchToProps } from './LoginContainer';
@@ -54,34 +55,43 @@ class Login extends React.Component {
         const { errors } = this.state;
 
         return (
-            <div className="login">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Log In</h1>
-                            <p className="lead text-center">Sign in to your Instagames account</p>
-                            <form onSubmit={this.onSubmit}>
-                                <TextFieldGroup 
-                                    placeholder="Email Address"
-                                    name="email"
-                                    type="email"
-                                    value={this.state.email}
-                                    onChange={this.onChange}
-                                    error={errors.email}
-                                />
+            <div>
+                <div className="login">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-11 m-auto">
+                                <h1 className="display-4 text-center">Instagames</h1>
+                                {/* <p className="lead text-center">Sign in to your Instagames account</p> */}
+                                <form onSubmit={this.onSubmit}>
+                                    <TextFieldGroup 
+                                        placeholder="Email Address"
+                                        name="email"
+                                        type="email"
+                                        value={this.state.email}
+                                        onChange={this.onChange}
+                                        error={errors.email}
+                                        loginInput='loginInput'
+                                    />
 
-                                <TextFieldGroup
-                                    placeholder="Password"
-                                    name="password"
-                                    type="password"
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                    error={errors.password}
-                                />
+                                    <TextFieldGroup
+                                        placeholder="Password"
+                                        name="password"
+                                        type="password"
+                                        value={this.state.password}
+                                        onChange={this.onChange}
+                                        error={errors.password}
+                                        loginInput='loginInput'
+                                    />
 
-                                <input type="submit" className="btn btn-info btn-block mt-4" />
-                            </form>
+                                    <input type="submit" className="btn btn-info btn-block btn-login" value="Log In"/>
+                                </form>
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <div className="signup">
+                    <div>
+                        Don't have an account? <Link to="/register">Sign Up</Link>
                     </div>
                 </div>
             </div>
