@@ -10,7 +10,7 @@ class ProfileActions extends React.Component {
         let profileContent3;
 
         if(profile.bio) {
-            profileContent3 = <div>{user.name}'s Bio: <br/><span>{profile.bio}</span></div>
+            profileContent3 = <div><b>{user.name}'s Bio: </b><br/><span>{profile.bio}</span></div>
         } else {
             profile.bio = null
         }
@@ -43,7 +43,7 @@ class ProfileActions extends React.Component {
 
                     <div className="profile-content-2">
                         <ul>
-                            <li><span>{posts.length} Screenshot Posts</span></li>
+                            <li><span><b>{posts.length}</b> Screenshot Posts</span></li>
                             {/* <li><span>100 Followers</span></li>
                             <li><span>200 Following</span></li> */}
                         </ul>

@@ -46,16 +46,26 @@ class Navbar extends React.Component {
         </ul>
     )
 
-    const guestLinks = (
-        <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-                <Link className="nav-link" to="/register">Sign Up</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/login">Login</Link>
-            </li>
-        </ul>
+    const authLinks2 = (
+        <div>
+            <Link className="nav-link" to="/profiles"><i className="far fa-compass"></i></Link>
+
+            <Link className="nav-link" to="/profiles"><i className="far fa-heart"></i></Link>
+
+            <Link className="nav-link" to="/"><i className="far fa-user"></i></Link>
+        </div>
     )
+
+    const guestLinks = (<div></div>)
+    //     <ul className="navbar-nav ml-auto">
+    //         <li className="nav-item">
+    //             <Link className="nav-link" to="/register">Sign Up</Link>
+    //         </li>
+    //         <li className="nav-item">
+    //             <Link className="nav-link" to="/login">Login</Link>
+    //         </li>
+    //     </ul>
+    // )
 
     return (
       <div>
@@ -63,18 +73,13 @@ class Navbar extends React.Component {
             <div className="nav-cont">
             
                 <div className="cont">
-                    {isAuthenticated ? authLinks : guestLinks}
+                    {isAuthenticated ? authLinks : null}
 
                 </div>
 
                 <div className="cont">
-                    <div>
-                        <Link className="nav-link" to="/profiles"><i className="far fa-compass"></i></Link>
+                    {isAuthenticated ? authLinks2 : null}
 
-                        <Link className="nav-link" to="/profiles"><i className="far fa-heart"></i></Link>
-
-                        <Link className="nav-link" to="/"><i className="far fa-user"></i></Link>
-                    </div>
                 </div>
             </div>
         </nav>

@@ -16,16 +16,16 @@ class Landing extends React.Component {
         return (
         <div>
             <div className="landing">
-                <div className="dark-overlay landing-inner text-light">
+                <div className="light-overlay landing-inner text-light">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-12 text-center">
-                                <h1 className="display-3 mb-4">Instagames
+                            <div className="col-md-12 text-left">
+                                <h1 className="display-3 text-dark mb-4">Instagames
             </h1>
-                                <p className="lead"> Share screenshots of Epic moments and create your gamer profile. </p>
+                                <p className="text-dark lead"> Share screenshots of Epic moments and create your gamer profile. </p>
                                 <hr />
-                                <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
-                                <Link to="/login" className="btn btn-lg btn-light">Login</Link>
+                                {/* <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link> */}
+                                <Link to="/login" className="btn btn-lg btn-light btn-start">Get Started!</Link>
                             </div>
                         </div>
                     </div>
