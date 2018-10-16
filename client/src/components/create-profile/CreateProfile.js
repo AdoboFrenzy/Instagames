@@ -146,14 +146,14 @@ class CreateProfile extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="left-col">
-                            <div>Edit Profile</div>
+                            <div>Create Profile</div>
                         </div>
                         <div className="right-col">
                             {/* <h1 className="display-4 text-center">Create Your Profile</h1>
                             <p className="lead text-center">
                                 Let's get some information to make your profile stand out
                             </p> */}
-                            <small className="d-block pb-3">* = required fields</small>
+                            <div className="d-block pb-3 req-fields"><small>(*) required fields</small></div>
                             <form onSubmit={this.onSubmit}>
                                 <div className="labelfieldgroup">
                                     <div className="label">Name</div>
@@ -270,6 +270,7 @@ class CreateProfile extends React.Component {
 
                                 <div className="mb-3">
                                     <button 
+                                        className="social-btn"
                                         type="button"
                                         onClick={() => {
                                             this.setState(prevState => ({
@@ -278,10 +279,10 @@ class CreateProfile extends React.Component {
                                     }}>
                                         Add Social Network Links
                                     </button>
-                                    <span className="text-muted">Optional</span>
+                                    <span className="text-muted">  Optional</span>
                                 </div>
                                 {socialInputs}
-                                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4" />
+                                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4 social-submit-btn" />
                             </form>
                         </div>
                     </div>

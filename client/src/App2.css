@@ -224,6 +224,17 @@
 }
 
 /* create profile */
+.req-fields {
+    margin-top: 10px;
+    text-align: right;
+
+}
+
+.req-fields small {
+    /* background-color: red; */
+    padding-right: 20px;
+}
+
 .btn-createprofile {
     color: #212529;
     background-color: white;
@@ -243,6 +254,7 @@
 
 .create-profile-form .row {
     width: 100%;
+    min-height: 750px;
     margin: 36px auto 0px;
     display: inline-flex;
 }
@@ -272,14 +284,17 @@
 .profilechanges {
     /* background-color: red; */
     width: 68%;
-    margin: 0px 25px !important;
-    /* margin: 25px 0 25px 50px; */
+    margin: 8px 25px 0 !important;
+    height: 32px;
+    font-size: 14px;
+    border: 1px solid #efefef;
     
 }
 
 .labelfieldgroup {
     /* background-color: red; */
     display: flex;
+    height: 48px;
 }
 
 .labelfieldgroup .label {
@@ -287,15 +302,38 @@
     margin: 0.75rem 0px;
     width: 150px;
     text-align: right;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .profile-private-info {
     /* background-color: red; */
+    margin-top: 50px;
     margin-left: 175px;
     margin-bottom: 15px;
     color: #999;
     font-size: 14px;
     font-weight: 600;
+}
+
+.social-btn {
+    background-color: white;
+    border: 1px solid #efefef;
+    margin-top: 10px;
+    margin-left: 175px;
+}
+
+.social-submit-btn {
+    background-color: #3897f0;
+    border: 1px solid #3897f0;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    width: 75px !important;
+    margin-left: 175px;
+    padding: 5px 9px !important;
+    
 }
 
 /* profile content */
