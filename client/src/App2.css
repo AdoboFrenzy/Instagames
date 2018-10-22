@@ -446,11 +446,17 @@
 .post-block {
     width: 620px;
     margin: 0 0 0 5%;
+
 }
 
 .picturethumbnail {
     padding: 0 0;
     border-bottom: 1px solid lightgrey;
+    
+}
+
+.picturethumbnail img {
+    object-fit: cover;
 }
 
 .text-28 {
@@ -537,6 +543,8 @@
     float: right;
     margin-top: 75px;
     margin-right: 89px;
+    position: sticky;
+    top: 45px;
 }
 
 .side-header-container {
