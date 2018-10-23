@@ -208,6 +208,7 @@
     height: 293px;
     width: 293px;
     margin: 0px;
+    object-fit: cover;
 }
 
 
