@@ -16,13 +16,13 @@ class Posts extends React.Component {
             showPostForm: false
         }
 
-        // this.child = React.createRef();
+
         this.addPost = this.addPost.bind(this);
-        // this.handleAddPost = this.handleAddPost.bind(this);
+
     }
     
     componentDidMount() {
-        // console.log(this.props)
+
         this.props.getPosts();
         this.props.getProfiles();
     }
@@ -45,11 +45,8 @@ class Posts extends React.Component {
         const currentUser = auth.user;
         let postContent, postForm, sideContent;
 
-        // console.log(profiles);
-
         if(this.state.showPostForm) {
             postForm = (<div className="dropzone-text-container-2">
-                {/* <p> Hide Post Form - <i className="fa fa-camera" aria-hidden="true"></i></p> */}
                 <PostForm addPost={this.addPost} />
             </div>)
         } else {
