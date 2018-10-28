@@ -20,16 +20,12 @@ class PostItem extends React.Component {
     }
 
     componentDidUpdate(prevProps, nextProps) {
-        // console.log(nextProps);
-        // this.props.getPost(nextProps._id);
+
     }
 
     refreshComments(id) {
         this.props.getPosts();
 
-        // window.location.reload();
-
-        
     }
 
     onDeleteClick(id) {
@@ -67,7 +63,6 @@ class PostItem extends React.Component {
     const { post, auth, showActions, profiles } = this.props;
 
     let postLocation;
-    // console.log(this.props);
 
     if(profiles && post) {
         postLocation = profiles.filter((profile, i) => profile.user._id === post.user)[0].location
@@ -108,11 +103,7 @@ class PostItem extends React.Component {
                             <Link to={`/post/${post._id}`} className="btn btn-white">
                                 <i className='far fa-comment text-28'></i>
                             </Link>
-                            {/* {post.user === auth.user.id ? (
-                                <button type="button" onClick={this.onDeleteClick.bind(this, post._id)} className="btn btn-danger mr-1">
-                                    <i className="fas fa-times" />
-                                </button>
-                            ) : null} */}
+                        
                         </span>
                     ) : null}
 

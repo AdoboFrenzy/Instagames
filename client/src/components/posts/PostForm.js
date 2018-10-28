@@ -56,14 +56,11 @@ class PostForm extends React.Component {
             .field('file', image);
         upload.end((err, response) => {
             if (err) {
-                // this.props.receivePegErrors(err);
+                
                 console.log(err)
             }
             if (response.body.secure_url !== '') {
-                // console.log(this.state)
-                // console.log(response.body.secure_url)
-                // console.log(typeof(response.body.secure_url))
-
+             
                 this.setState({
                     image: (response.body.secure_url)
                 });
@@ -72,7 +69,7 @@ class PostForm extends React.Component {
     }
 
     picturethumbnail() {
-        // console.log(this.state)
+        
         if (this.state.image === '') {
             return (
                 <div className="btn btn-light attach-btn">
@@ -127,7 +124,6 @@ class PostForm extends React.Component {
 PostForm.propTypes = {
     addPost: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
-    // errors: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
