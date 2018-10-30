@@ -43,9 +43,6 @@ class AddExperience extends React.Component {
       description: this.state.description
     }
 
-    console.log(expData);
-    console.log(this.props);
-
     this.props.addExperience(expData, this.props.history);
   }
 
@@ -108,7 +105,7 @@ class AddExperience extends React.Component {
                     className="form-check-input"
                     name="current"
                     value={this.state.current}
-                    // check={this.state.current}
+        
                     onChange={this.onCheck}
                     id="current"
                   />
